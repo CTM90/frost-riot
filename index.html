@@ -17,47 +17,53 @@
 
   <section id="title" class="screen active">
     <div class="logo">Frost<br/>Riot</div>
-    <p class="tagline">Hold to charge. Flick to spin.</p>
-    <p class="sub">The mountain meets you halfway.</p>
+    <p class="tagline" data-i18n="tagline">Hold to charge. Flick to spin.</p>
+    <p class="sub" data-i18n="subtitle">The mountain meets you halfway.</p>
     <div class="btn-row">
-      <button class="btn magenta" id="btn-drop">Drop In</button>
-      <button class="btn ghost" id="btn-local">Local Line</button>
-      <button class="btn ghost" id="btn-how">How to Ride</button>
+      <button class="btn magenta" id="btn-drop" data-i18n="dropIn">Drop In</button>
+      <button class="btn ghost" id="btn-local" data-i18n="localLine">Local Line</button>
+      <button class="btn ghost" id="btn-whiteout" data-i18n="whiteout">Whiteout</button>
+      <button class="btn ghost" id="btn-how" data-i18n="howToRide">How to Ride</button>
     </div>
-    <div class="how" id="how" style="display:none">
-      <b>Steer</b> with A/D or drag left. <b>Hold JUMP</b> to charge. Ride the glowing lip. In the air, hold to grab and flick to spin. Follow the magenta <b>Echo</b>. <b>Snap</b> saves an almost-slam. <b>Local Line</b> rides a real hill from maps.
+    <div class="how" id="how" data-i18n-html="howBody" style="display:none">
+      Steer with A/D or drag left. Hold JUMP to charge. Ride the glowing lip — you launch.
+      In the air, keep holding to grab (lean picks the style) and flick to spin.
+      Follow the magenta Echo to keep your combo alive. If you almost slam, Snap spends RIOT and saves the landing.
+      Local Line rides a real hill from maps — search, tap a nearby resort, or drop a GPX. That's the whole game.
     </div>
-    <p class="rotate-hint">LANDSCAPE FEELS BETTER</p>
+    <p class="sub" id="how-whiteout" data-i18n="whiteoutHow" style="display:none;max-width:520px">Don't look back. A thing in the snow is closing. Slams feed it. Hold and stay fast.</p>
+    <div id="lang-row" class="lang-row"></div>
+    <p class="rotate-hint" data-i18n="rotateHint">LANDSCAPE FEELS BETTER</p>
   </section>
 
   <section id="local" class="screen">
-    <div class="screen-title">Local Line</div>
-    <p class="sub">Search OpenSkiMap, tap a packed hill, or drop a GPX.</p>
+    <div class="screen-title" data-i18n="localLine">Local Line</div>
+    <p class="sub" data-i18n="localSub">Search OpenSkiMap, tap a packed hill, or drop a GPX.</p>
     <div class="local-search">
-      <input id="local-q" type="text" placeholder="Wintergreen, Snowshoe, your hill…" autocomplete="off" />
-      <button class="btn magenta" id="btn-search">Find</button>
+      <input id="local-q" type="text" data-i18n-placeholder="localPlaceholder" placeholder="Wintergreen, Snowshoe, your hill…" autocomplete="off" />
+      <button class="btn magenta" id="btn-search" data-i18n="find">Find</button>
     </div>
     <div class="local-pack" id="local-pack"></div>
     <div class="local-hits" id="local-hits"></div>
     <label class="local-upload">
-      Upload GPX / GeoJSON / .riot.json
+      <span data-i18n="upload">Upload GPX / GeoJSON / .riot.json</span>
       <input id="local-file" type="file" accept=".gpx,.json,.geojson,.riot.json" />
     </label>
-    <div class="local-status" id="local-status">Terrain from public DEMs. Trails from OSM if they exist. You own any GPX you drop.</div>
+    <div class="local-status" id="local-status" data-i18n="localStatusDefault">Terrain from public DEMs. Trails from the map if they exist. You own any GPX you drop.</div>
     <div class="btn-row">
-      <button class="btn ghost" id="btn-local-back">Back</button>
-      <button class="btn ghost" id="btn-local-export" disabled>Export</button>
-      <button class="btn magenta" id="btn-local-ride" disabled>Ride This Line</button>
+      <button class="btn ghost" id="btn-local-back" data-i18n="back">Back</button>
+      <button class="btn ghost" id="btn-local-export" disabled data-i18n="export">Export</button>
+      <button class="btn magenta" id="btn-local-ride" disabled data-i18n="rideThisLine">Ride This Line</button>
     </div>
   </section>
 
   <section id="select" class="screen">
-    <div class="screen-title">Choose Your Riot</div>
-    <p class="sub">Razor Ridge · Showoff · one line · don't choke the landing</p>
+    <div class="screen-title" data-i18n="chooseRiot">Choose Your Riot</div>
+    <p class="sub" id="select-sub" data-i18n="razorSub">Razor Ridge · Showoff · one line · don't choke the landing</p>
     <div class="rider-grid" id="rider-grid"></div>
     <div class="btn-row">
-      <button class="btn ghost" id="btn-back">Back</button>
-      <button class="btn magenta" id="btn-ride">Ride</button>
+      <button class="btn ghost" id="btn-back" data-i18n="back">Back</button>
+      <button class="btn magenta" id="btn-ride" data-i18n="ride">Ride</button>
     </div>
   </section>
 
@@ -65,19 +71,22 @@
     <div class="results-card">
       <div class="sub" id="res-course">RAZOR RIDGE · SHOWOFF</div>
       <div class="medal" id="res-medal">FROST</div>
-      <div class="statline"><span>Score</span><span id="res-score">0</span></div>
-      <div class="statline"><span>Time</span><span id="res-time">0.00</span></div>
-      <div class="statline"><span>Best combo</span><span id="res-combo">x1</span></div>
-      <div class="statline"><span>Breakers</span><span id="res-breakers">0</span></div>
-      <div class="statline"><span>Slams</span><span id="res-slams">0</span></div>
+      <div class="statline"><span data-i18n="score">Score</span><span id="res-score">0</span></div>
+      <div class="statline"><span data-i18n="time">Time</span><span id="res-time">0.00</span></div>
+      <div class="statline"><span data-i18n="bestCombo">Best combo</span><span id="res-combo">x1</span></div>
+      <div class="statline"><span data-i18n="breakers">Breakers</span><span id="res-breakers">0</span></div>
+      <div class="statline"><span data-i18n="slams">Slams</span><span id="res-slams">0</span></div>
+      <div class="statline hunt-only" id="res-hunt-dist-row" style="display:none"><span data-i18n="distance">Distance</span><span id="res-dist">0</span></div>
+      <div class="statline hunt-only" id="res-hunt-gap-row" style="display:none"><span data-i18n="gap">Gap</span><span id="res-gap">—</span></div>
       <div class="btn-row">
-        <button class="btn magenta" id="btn-again">Drop Again</button>
-        <button class="btn ghost" id="btn-menu">Menu</button>
+        <button class="btn magenta" id="btn-again" data-i18n="dropAgain">Drop Again</button>
+        <button class="btn ghost" id="btn-menu" data-i18n="menu">Menu</button>
       </div>
     </div>
   </section>
 
   <div id="countdown"></div>
+
   <div id="hud">
     <div class="hud-tl">
       <div class="clock" id="hud-time">0.00</div>
@@ -86,27 +95,32 @@
     <div class="hud-tc">
       <div class="flow" id="hud-flow">x1.0</div>
       <div class="online" id="hud-online">ON LINE</div>
+      <div class="gap" id="hud-gap" style="display:none">GAP 40m</div>
     </div>
     <div class="hud-tr">
-      <div class="score-lbl">Score</div>
+      <div class="score-lbl" data-i18n="score">Score</div>
       <div class="score" id="hud-score">0</div>
     </div>
     <div class="hud-call" id="hud-call"></div>
     <div class="hud-bc">
       <div class="meter-label" id="riot-letters"><span>R</span><span>I</span><span>O</span><span>T</span></div>
       <div class="meter" id="meter"><i id="meter-fill"></i></div>
-      <div class="meter-sub" id="meter-sub">FILL IT</div>
+      <div class="meter-sub" id="meter-sub" data-i18n="fillIt">FILL IT</div>
     </div>
-    <div class="coach" id="coach">Steer · Hold jump into the glow</div>
+    <div class="coach" id="coach" data-i18n="coachGround">Steer · Hold jump into the glow</div>
   </div>
-  <button class="btn ghost pause-fab" id="btn-pause">PAUSE</button>
+
+  <button class="btn ghost pause-fab" id="btn-pause" data-i18n="pause">PAUSE</button>
+
   <div id="touch">
     <div class="stick-zone" id="stick-zone"></div>
     <div class="act-zone">
       <button class="pad jump" id="btn-jump">Hold</button>
     </div>
   </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="js/game.js?v=7"></script>
+  <script src="js/i18n.js?v=9"></script>
+  <script src="js/game.js?v=9"></script>
 </body>
 </html>
