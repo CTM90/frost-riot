@@ -17,21 +17,38 @@
 
   <section id="title" class="screen active">
     <div class="logo">Frost<br/>Riot</div>
-    <p class="tagline">Tricks fill the tank.</p>
-    <p class="sub">The tank is the mountain.</p>
+    <p class="tagline">Hold to charge. Flick to spin.</p>
+    <p class="sub">The mountain meets you halfway.</p>
     <div class="btn-row">
       <button class="btn magenta" id="btn-drop">Drop In</button>
+      <button class="btn ghost" id="btn-local">Local Line</button>
       <button class="btn ghost" id="btn-how">How to Ride</button>
     </div>
     <div class="how" id="how" style="display:none">
-      <b>Desktop</b> — A/D or ←/→ carve · hold S to tuck / pre-wind · Space ollie ·
-      W/S flip in air · A/D spin in air · J K L I grabs (Mute / Indy / Melon / Method) ·
-      Shift boost · F breaker when RIOT is lit<br/>
-      <b>Phone</b> — left stick carve · hold JUMP to pre-wind, release to ollie · BOOST spends the meter ·
-      grab pads appear in the air · BREAKER when the bar is full<br/>
-      Land clean. Repeat grabs pay less. Keep flowing or the multiplier dies.
+      <b>Steer</b> with A/D or drag left. <b>Hold JUMP</b> to charge. Ride the glowing lip. In the air, hold to grab and flick to spin. Follow the magenta <b>Echo</b>. <b>Snap</b> saves an almost-slam. <b>Local Line</b> rides a real hill from maps.
     </div>
     <p class="rotate-hint">LANDSCAPE FEELS BETTER</p>
+  </section>
+
+  <section id="local" class="screen">
+    <div class="screen-title">Local Line</div>
+    <p class="sub">Search OpenSkiMap, tap a packed hill, or drop a GPX.</p>
+    <div class="local-search">
+      <input id="local-q" type="text" placeholder="Wintergreen, Snowshoe, your hill…" autocomplete="off" />
+      <button class="btn magenta" id="btn-search">Find</button>
+    </div>
+    <div class="local-pack" id="local-pack"></div>
+    <div class="local-hits" id="local-hits"></div>
+    <label class="local-upload">
+      Upload GPX / GeoJSON / .riot.json
+      <input id="local-file" type="file" accept=".gpx,.json,.geojson,.riot.json" />
+    </label>
+    <div class="local-status" id="local-status">Terrain from public DEMs. Trails from OSM if they exist. You own any GPX you drop.</div>
+    <div class="btn-row">
+      <button class="btn ghost" id="btn-local-back">Back</button>
+      <button class="btn ghost" id="btn-local-export" disabled>Export</button>
+      <button class="btn magenta" id="btn-local-ride" disabled>Ride This Line</button>
+    </div>
   </section>
 
   <section id="select" class="screen">
@@ -46,7 +63,7 @@
 
   <section id="results" class="screen">
     <div class="results-card">
-      <div class="sub">RAZOR RIDGE · SHOWOFF</div>
+      <div class="sub" id="res-course">RAZOR RIDGE · SHOWOFF</div>
       <div class="medal" id="res-medal">FROST</div>
       <div class="statline"><span>Score</span><span id="res-score">0</span></div>
       <div class="statline"><span>Time</span><span id="res-time">0.00</span></div>
@@ -61,7 +78,6 @@
   </section>
 
   <div id="countdown"></div>
-
   <div id="hud">
     <div class="hud-tl">
       <div class="clock" id="hud-time">0.00</div>
@@ -69,6 +85,7 @@
     </div>
     <div class="hud-tc">
       <div class="flow" id="hud-flow">x1.0</div>
+      <div class="online" id="hud-online">ON LINE</div>
     </div>
     <div class="hud-tr">
       <div class="score-lbl">Score</div>
@@ -80,26 +97,16 @@
       <div class="meter" id="meter"><i id="meter-fill"></i></div>
       <div class="meter-sub" id="meter-sub">FILL IT</div>
     </div>
+    <div class="coach" id="coach">Steer · Hold jump into the glow</div>
   </div>
-
   <button class="btn ghost pause-fab" id="btn-pause">PAUSE</button>
-
   <div id="touch">
     <div class="stick-zone" id="stick-zone"></div>
-    <div class="grabs" id="grabs">
-      <button class="pad grab" data-grab="MUTE">Mute</button>
-      <button class="pad grab" data-grab="INDY">Indy</button>
-      <button class="pad grab" data-grab="MELON">Melon</button>
-      <button class="pad grab" data-grab="METHOD">Method</button>
-    </div>
     <div class="act-zone">
-      <button class="pad breaker" id="btn-breaker">Breaker</button>
-      <button class="pad boost" id="btn-boost">Boost</button>
-      <button class="pad jump" id="btn-jump">Jump</button>
+      <button class="pad jump" id="btn-jump">Hold</button>
     </div>
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="js/game.js?v=4"></script>
+  <script src="js/game.js?v=7"></script>
 </body>
 </html>
