@@ -1,9 +1,10 @@
-const CACHE = "frost-riot-v6";
+const CACHE = "frost-riot-v9";
 const ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
   "./css/app.css",
+  "./js/i18n.js",
   "./js/game.js",
   "./icons/icon.svg"
 ];

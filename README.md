@@ -1,55 +1,37 @@
 # FROST RIOT
 
-Arcade snowboarding. Two verbs. Real hills optional.
+Arcade snowboarding. Two verbs. Real hills optional. Something in the snow if you ask for it.
 
 A playable browser / PWA in the spirit of early-2000s boarder games (SSX Tricky, Cool Boarders) — original characters, original mountain, original meter. Not an EA remake.
 
 ## Play
-
-Needs a local server (service worker + fetch):
 
 ```bash
 cd frost-riot
 python3 -m http.server 8765
 ```
 
-Open [http://localhost:8765](http://localhost:8765). On a phone: Add to Home Screen.
+Open [http://localhost:8765](http://localhost:8765). Phone: Add to Home Screen.
 
 ## How to ride
 
 Two verbs: **steer** and **hold**.
 
-- Desktop: `A`/`D` or arrows carve. Hold `Space` to charge. Flick while holding to spin.
-- Phone: drag left to carve. Hold the JUMP pad. Flick on the pad to spin.
+- Desktop: `A`/`D` carve. Hold `Space` to charge. Flick to spin.
+- Phone: drag left to carve. Hold JUMP. Flick on the pad to spin.
 - Lean picks the grab. Warm RIOT + tuck auto-boosts. Full meter auto-Breakers at the apex.
-- Follow the magenta **Echo** to keep FLOW alive.
-- **Snap** spends RIOT to save an almost-slam.
+- Follow the magenta **Echo**. **Snap** spends RIOT to save an almost-slam.
 
-That's the whole game.
+## Modes
 
-## Local Line
+- **Drop In** — Razor Ridge showoff. Score attack.
+- **Local Line** — real hill from OpenSkiMap / DEM / GPX.
+- **Whiteout** — same two verbs, a thing in the snow closing, avalanche wall, trees that hit. ESCAPED or HUNTED.
 
-Title screen → **Local Line**.
+## Language
 
-- Tap a packed hill (Wintergreen, Massanutten, Snowshoe, Canaan, Killington, Mammoth, Whistler)
-- Search a place name (OpenSkiMap), or paste `lat, lon`
-- Drop a GPX / GeoJSON / `.riot.json`
-
-We sample a public DEM, trace high → low, exaggerate pitch so a real groomer rides like an arcade course, and plant kickers on slope breaks. Export saves a tiny `.riot.json`.
-
-This is the elevation model LiDAR already became — not a raw LAS upload.
-
-Terrain: public DEM (Open-Meteo / SRTM / NED-class). Search: [OpenSkiMap](https://openskimap.org) / OpenSkiData. Trails you drop are yours. OSM credit when a named run is used.
-
-## The loop
-
-1. Drop in on Razor Ridge or a Local Line.
-2. Hold into the glowing lip.
-3. Grab + spin. Stick the landing — or Snap.
-4. Points fill **RIOT**. Four letters = RIOT MODE.
-5. Stay on the Echo or FLOW dies.
-
-Medals: FROST 40k · RIOT 120k · LEGEND 250k · UNHOLY 400k
+Title chips. Detects the browser. Remembers `frost-riot-lang`.
+Brand stays English: RIOT, BREAKER, SNAP, Echo, FLOW, Local Line, Whiteout.
 
 ## Riders
 
@@ -61,22 +43,6 @@ Medals: FROST 40k · RIOT 120k · LEGEND 250k · UNHOLY 400k
 
 ## Stack
 
-Vanilla HTML / CSS / JS + Three.js r128. No build step. Works as a PWA.
+Vanilla HTML / CSS / JS + Three.js r128. No build step. PWA.
 
-Later path if you want App Store / Play: wrap with Capacitor, or rebuild the same systems in Godot 4.
-
-## What's in v0
-
-- Razor Ridge showoff + Local Line importer
-- 3 riders
-- Echo Line, Snap, lip magnet, auto-style
-- Keyboard + touch
-- `.riot.json` export / import
-
-## What's not
-
-- AI racers / World Circuit
-- Voice lines or licensed soundtrack
-- Open-world roam of a whole resort
-- Raw LiDAR point clouds
-- Photoreal snow
+Clone needs `js/game.js` and `js/i18n.js` from this repo. If a clone 404s those, copy them from the playable artifacts folder.
