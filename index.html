@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#FF2D95" />
+  <title>FROST RIOT</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon.svg" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <canvas id="game-canvas"></canvas>
+
+  <section id="title" class="screen active">
+    <div class="logo">Frost<br/>Riot</div>
+    <p class="tagline">Tricks fill the tank.</p>
+    <p class="sub">The tank is the mountain.</p>
+    <div class="btn-row">
+      <button class="btn magenta" id="btn-drop">Drop In</button>
+      <button class="btn ghost" id="btn-how">How to Ride</button>
+    </div>
+    <div class="how" id="how" style="display:none">
+      <b>Desktop</b> — A/D or ←/→ carve · hold S to tuck / pre-wind · Space ollie ·
+      W/S flip in air · A/D spin in air · J K L I grabs (Mute / Indy / Melon / Method) ·
+      Shift boost · F breaker when RIOT is lit<br/>
+      <b>Phone</b> — left stick carve · hold JUMP to pre-wind, release to ollie · BOOST spends the meter ·
+      grab pads appear in the air · BREAKER when the bar is full<br/>
+      Land clean. Repeat grabs pay less. Keep flowing or the multiplier dies.
+    </div>
+    <p class="rotate-hint">LANDSCAPE FEELS BETTER</p>
+  </section>
+
+  <section id="select" class="screen">
+    <div class="screen-title">Choose Your Riot</div>
+    <p class="sub">Razor Ridge · Showoff · one line · don't choke the landing</p>
+    <div class="rider-grid" id="rider-grid"></div>
+    <div class="btn-row">
+      <button class="btn ghost" id="btn-back">Back</button>
+      <button class="btn magenta" id="btn-ride">Ride</button>
+    </div>
+  </section>
+
+  <section id="results" class="screen">
+    <div class="results-card">
+      <div class="sub">RAZOR RIDGE · SHOWOFF</div>
+      <div class="medal" id="res-medal">FROST</div>
+      <div class="statline"><span>Score</span><span id="res-score">0</span></div>
+      <div class="statline"><span>Time</span><span id="res-time">0.00</span></div>
+      <div class="statline"><span>Best combo</span><span id="res-combo">x1</span></div>
+      <div class="statline"><span>Breakers</span><span id="res-breakers">0</span></div>
+      <div class="statline"><span>Slams</span><span id="res-slams">0</span></div>
+      <div class="btn-row">
+        <button class="btn magenta" id="btn-again">Drop Again</button>
+        <button class="btn ghost" id="btn-menu">Menu</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="countdown"></div>
+
+  <div id="hud">
+    <div class="hud-tl">
+      <div class="clock" id="hud-time">0.00</div>
+      <div class="speed" id="hud-speed">0 KM/H</div>
+    </div>
+    <div class="hud-tc">
+      <div class="flow" id="hud-flow">x1.0</div>
+    </div>
+    <div class="hud-tr">
+      <div class="score-lbl">Score</div>
+      <div class="score" id="hud-score">0</div>
+    </div>
+    <div class="hud-call" id="hud-call"></div>
+    <div class="hud-bc">
+      <div class="meter-label" id="riot-letters"><span>R</span><span>I</span><span>O</span><span>T</span></div>
+      <div class="meter" id="meter"><i id="meter-fill"></i></div>
+      <div class="meter-sub" id="meter-sub">FILL IT</div>
+    </div>
+  </div>
+
+  <button class="btn ghost pause-fab" id="btn-pause">PAUSE</button>
+
+  <div id="touch">
+    <div class="stick-zone" id="stick-zone"></div>
+    <div class="grabs" id="grabs">
+      <button class="pad grab" data-grab="MUTE">Mute</button>
+      <button class="pad grab" data-grab="INDY">Indy</button>
+      <button class="pad grab" data-grab="MELON">Melon</button>
+      <button class="pad grab" data-grab="METHOD">Method</button>
+    </div>
+    <div class="act-zone">
+      <button class="pad breaker" id="btn-breaker">Breaker</button>
+      <button class="pad boost" id="btn-boost">Boost</button>
+      <button class="pad jump" id="btn-jump">Jump</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/game.js?v=4"></script>
+</body>
+</html>
