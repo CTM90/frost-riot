@@ -1,4 +1,4 @@
-const CACHE = "frost-riot-v4";
+const CACHE = "frost-riot-v6";
 const ASSETS = [
   "./",
   "./index.html",

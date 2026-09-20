@@ -1,54 +1,53 @@
 # FROST RIOT
 
-Arcade snowboarding. Tricks fill the tank. The tank is the mountain.
+Arcade snowboarding. Two verbs. Real hills optional.
 
-A playable browser / PWA slice in the spirit of early-2000s boarder games (SSX Tricky, Cool Boarders) — original characters, original mountain, original meter. Not an EA remake.
+A playable browser / PWA in the spirit of early-2000s boarder games (SSX Tricky, Cool Boarders) — original characters, original mountain, original meter. Not an EA remake.
 
 ## Play
 
-Open `index.html` from a local server (the PWA service worker needs http):
+Needs a local server (service worker + fetch):
 
 ```bash
 cd frost-riot
 python3 -m http.server 8765
 ```
 
-Then go to [http://localhost:8765](http://localhost:8765).
-
-On a phone: open that URL and **Add to Home Screen**. The app launches fullscreen.
-
-Enable GitHub Pages on this repo (Settings → Pages → Deploy from main) to play at `https://ctm90.github.io/frost-riot/`.
+Open [http://localhost:8765](http://localhost:8765). On a phone: Add to Home Screen.
 
 ## How to ride
 
-**Desktop**
-- `A` / `D` or arrows — carve
-- Hold `S` — tuck and pre-wind
-- `Space` — ollie (release at the lip for big air)
-- In air: `W`/`S` flip, `A`/`D` spin
-- `J` Mute · `K` Indy · `L` Melon · `I` Method
-- `Shift` — boost (spends the RIOT meter)
-- `F` — Breaker when the meter is full
-- `P` / `Esc` — pause
+Two verbs: **steer** and **hold**.
 
-**Phone**
-- Left side drag — carve
-- Hold JUMP to pre-wind, release to ollie
-- BOOST spends the meter
-- Grab pads appear in the air
-- BREAKER when the bar is lit
+- Desktop: `A`/`D` or arrows carve. Hold `Space` to charge. Flick while holding to spin.
+- Phone: drag left to carve. Hold the JUMP pad. Flick on the pad to spin.
+- Lean picks the grab. Warm RIOT + tuck auto-boosts. Full meter auto-Breakers at the apex.
+- Follow the magenta **Echo** to keep FLOW alive.
+- **Snap** spends RIOT to save an almost-slam.
 
-Land clean. Repeat grabs pay less. Keep flowing or the multiplier dies.
+That's the whole game.
+
+## Local Line
+
+Title screen → **Local Line**.
+
+- Tap a packed hill (Wintergreen, Massanutten, Snowshoe, Canaan, Killington, Mammoth, Whistler)
+- Search a place name (OpenSkiMap), or paste `lat, lon`
+- Drop a GPX / GeoJSON / `.riot.json`
+
+We sample a public DEM, trace high → low, exaggerate pitch so a real groomer rides like an arcade course, and plant kickers on slope breaks. Export saves a tiny `.riot.json`.
+
+This is the elevation model LiDAR already became — not a raw LAS upload.
+
+Terrain: public DEM (Open-Meteo / SRTM / NED-class). Search: [OpenSkiMap](https://openskimap.org) / OpenSkiData. Trails you drop are yours. OSM credit when a named run is used.
 
 ## The loop
 
-1. Carve Razor Ridge.
-2. Pre-wind into kickers.
-3. Grab + spin + flip. Stick the landing.
-4. Points fill the **RIOT** meter.
-5. Spend it on boost, or dump a **Breaker** (character signature).
-6. Chain unique tricks to climb the FLOW multiplier (cap 8x).
-7. Fill four letters — **RIOT MODE** — infinite boost.
+1. Drop in on Razor Ridge or a Local Line.
+2. Hold into the glowing lip.
+3. Grab + spin. Stick the landing — or Snap.
+4. Points fill **RIOT**. Four letters = RIOT MODE.
+5. Stay on the Echo or FLOW dies.
 
 Medals: FROST 40k · RIOT 120k · LEGEND 250k · UNHOLY 400k
 
@@ -68,15 +67,16 @@ Later path if you want App Store / Play: wrap with Capacitor, or rebuild the sam
 
 ## What's in v0
 
-- One mountain (Razor Ridge), showoff score attack
-- 3 riders with different speed / trick / edge
-- Kickers, two rails, air multiplier rings
-- Combo, RIOT meter, Breakers, landing check
+- Razor Ridge showoff + Local Line importer
+- 3 riders
+- Echo Line, Snap, lip magnet, auto-style
 - Keyboard + touch
+- `.riot.json` export / import
 
 ## What's not
 
 - AI racers / World Circuit
 - Voice lines or licensed soundtrack
-- Open mountain (this is a spline course, on purpose)
+- Open-world roam of a whole resort
+- Raw LiDAR point clouds
 - Photoreal snow
